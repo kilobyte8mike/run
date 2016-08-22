@@ -1,0 +1,19 @@
+{
+  "name": "run",
+  "version": "1.0.0",
+  "description": "Mikes App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kilobyte8mike/run.git"
+  },
+  "author": "Mike Jewell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kilobyte8mike/run/issues"
+  },
+  "homepage": "https://github.com/kilobyte8mike/run#readme"
+}
