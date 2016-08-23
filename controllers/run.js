@@ -3,7 +3,7 @@ var controller = express.Router();
 var run = require('../models/run.js')
 
 controller.get('/', function(req, res){
-  run.findAll(req.params.id).then(function(allRuns){
+  run.all(req.params.id).then(function(allRuns){
     res.json(allRuns);
   });
 });
@@ -25,10 +25,15 @@ controller.post('/', function( req, res){
 });
 
 controller.delete('/:id' , function(req, res){
-  var index = run.findIndex( function(e){ return e.id == req.params.id;});
-  if ( index > -1 )
-    run.splice(index, 1);
-  res.json(run);
+  run.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+//  var index = run.findIndex( function(e){ return e.id == req.params.id;});
+//  if ( index > -1 )
+//    run.splice(index, 1);
+//  res.json(run);
 });
 
 controller.put('/:id' , function(req, res){
