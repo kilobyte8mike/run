@@ -39,7 +39,7 @@ controller.put('/:id' , function(req, res){
     aRun.setAttributes({
       date: req.body.date,
       disatance: req.body.distance
-    }).success(function(aVar){
+    }).then(function(aVar){
       res.json(aVar);
     });
   });
