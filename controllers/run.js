@@ -3,9 +3,9 @@ var controller = express.Router();
 var run = require('../models/run.js')
 
 controller.get('/', function(req, res){
-  console.log( req.query );
-  res.json(run);
-  //res.send('I\'m in a controller!');
+  run.findAll(req.params.id).then(function(allRuns){
+    res.json(allRuns);
+  });
 });
 
 controller.get('/:id', function(req, res){
