@@ -27,9 +27,7 @@ app.use( '/mike' , function( req, res, next){
 });
 
  app.get('/', function (req, res){
-  res.render('index.ejs', {
-    dataArray: fakeArray
-  });
+  res.render('index.ejs' );
  })
 
 app.listen(PORT, function () {
