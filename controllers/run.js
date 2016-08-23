@@ -9,15 +9,19 @@ controller.get('/', function(req, res){
 });
 
 controller.get('/:id', function(req, res){
-  res.json( run.filter( function(obj){
-    return obj.id == req.params.id;
-  }) );
+  run.findById(req.params.id).then(function(aRun){
+    res.json(aRun);
+  })
 });
 
 controller.post('/', function( req, res){
-  run.push(req.body);
-  //console.log(req.body);
-  res.json(run);
+  run.create({
+    date: new Date('2016-01-01'),
+    distance: 5.5
+  }).then(function(createdRun){
+    res.json(createdRun)
+  });
+
 });
 
 controller.delete('/:id' , function(req, res){
@@ -28,12 +32,8 @@ controller.delete('/:id' , function(req, res){
 });
 
 controller.put('/:id' , function(req, res){
-  var index = run.findIndex( function(e) { return e.id == req.params.id; });
-  if (index > 0){
-      req.body.id = req.params.id;
-      run[index] = req.body;
-      res.json( run );
-  }
-
+  req.body.id = req.params.id;
+  run.push( req.body );
+  res.json( run );
 });
 module.exports = controller;
