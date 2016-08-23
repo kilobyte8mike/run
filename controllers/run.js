@@ -29,11 +29,9 @@ controller.delete('/:id' , function(req, res){
     where: {
       id: req.params.id
     }
-  })
-//  var index = run.findIndex( function(e){ return e.id == req.params.id;});
-//  if ( index > -1 )
-//    run.splice(index, 1);
-//  res.json(run);
+  }).then(fucntion(didSucceed){
+    res.json(didSucceed);
+  });
 });
 
 controller.put('/:id' , function(req, res){
