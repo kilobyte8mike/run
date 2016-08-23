@@ -35,13 +35,14 @@ controller.delete('/:id' , function(req, res){
 });
 
 controller.put('/:id' , function(req, res){
-  run.findById(req.params.id).then(function(aRun){
-    aRun.setAttributes({
-      date: req.body.date,
-      disatance: req.body.distance
-    }).then(function(aVar){
-      res.json(aVar);
+  run.update(
+    req.body,
+    { where: {
+          id: req.params.id
+        }
+    }).then(function(result){
+      res.json(result);
     });
-  });
 });
+
 module.exports = controller;
