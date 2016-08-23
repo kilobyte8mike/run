@@ -4,7 +4,7 @@ var bodyParser  = require('body-parser');
 var app = express();
 var runController = require('./controllers/run.js');
 
-
+app.use(express.static('public'));
 var PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
