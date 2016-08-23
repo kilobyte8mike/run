@@ -29,7 +29,7 @@ controller.delete('/:id' , function(req, res){
     where: {
       id: req.params.id
     }
-  }).then(fucntion(didSucceed){
+  }).then(function(didSucceed){
     res.json(didSucceed);
   });
 });
